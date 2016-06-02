@@ -1,0 +1,70 @@
+{
+  "name": "angular-starter",
+  "version": "0.0.1",
+  "description": "Start-up for angular project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "prestart": "npm install",
+    "dev": "npm i && ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline",
+    "build": "./node_modules/webpack/bin/webpack.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "clean-webpack-plugin": "^0.1.9",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.11.1",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-loader": "^1.3.0",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.19.0",
+    "json-loader": "^0.5.4",
+    "ng-annotate-loader": "^0.1.0",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.1.0",
+    "webpack": "^1.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexNo/angular-starter.git"
+  },
+  "keywords": [
+    "angular",
+    "webpack"
+  ],
+  "author": "Alexander Novik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexNo/angular-starter/issues"
+  },
+  "homepage": "https://github.com/AlexNo/angular-starter#readme",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-animate": "^1.5.6",
+    "angular-aria": "^1.5.6",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-i18n": "^1.5.6",
+    "angular-jwt": "0.0.9",
+    "angular-local-storage": "^0.2.7",
+    "angular-logger": "^1.3.1",
+    "angular-material": "^1.0.9",
+    "angular-messages": "^1.5.6",
+    "angular-moment": "^1.0.0-beta.6",
+    "angular-new-router": "^0.5.3",
+    "angular-resource": "^1.5.6",
+    "angular-sanitize": "^1.5.6",
+    "angular-translate": "^2.11.0",
+    "angular-translate-handler-log": "^2.11.0",
+    "angular-translate-interpolation-messageformat": "^2.11.0",
+    "angular-translate-storage-local": "^2.11.0",
+    "babel-polyfill": "^6.9.1",
+    "messageformat": "^0.3.1",
+    "moment": "^2.13.0"
+  }
+}
