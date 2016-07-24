@@ -12,6 +12,7 @@ import 'angular-aria';
 
 import 'babel-polyfill';
 
+import auth from '../auth';
 import logger from '../logger';
 
 import routing from './routing';
@@ -29,14 +30,20 @@ angular.module('as.app', [
   angularSanitize,
   ngMaterial,
   'LocalStorageModule',
+  auth,
   logger,
-  routing
+  routing,
 ])
-  .config(['localStorageServiceProvider', localStorageServiceProvider => {
-    localStorageServiceProvider
-      .setPrefix('app')
-      .setStorageType('localStorage')
-      .setNotify(true, true);
-  }])
-  .config(['asLoggerProvider', asLoggerProvider => asLoggerProvider.setModuleName('APP')])
-  .run(bootstrap);
+    .config(['localStorageServiceProvider', localStorageServiceProvider => {
+      localStorageServiceProvider
+          .setPrefix('app')
+          .setStorageType('localStorage')
+          .setNotify(true, true);
+    }])
+    .config(['asLoggerProvider', asLoggerProvider => asLoggerProvider.setModuleName('APP')])
+    .config($mdThemingProvider => {
+      $mdThemingProvider.theme('default')
+          .primaryPalette('grey')
+          .accentPalette('orange');
+    })
+    .run(bootstrap);

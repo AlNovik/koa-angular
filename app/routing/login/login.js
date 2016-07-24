@@ -1,15 +1,15 @@
-let COMPONENT_NAME = 'as.profile.login';
+const COMPONENT_NAME = 'as.profile.login';
 
-let _logger = new WeakMap();
+const _logger = new WeakMap();
 /**
  *
  */
 class LoginController {
   /* @ngInject */
-  constructor($rootScope, $location, asLogger) {
+  constructor($rootScope, $location, asLogger, LoginService) {
     _logger.set(this, asLogger('LoginController'));
-
-
+    this.$location = $location;
+    this.loginService = LoginService;
   }
 
   activate() {
@@ -19,7 +19,12 @@ class LoginController {
    *
    */
   login() {
-
+    this.loginService.authenticate().then(data => {
+      if (!angular.equals(data, {})) {
+        _logger.get(this).info('Login success!');
+        this.$location.path('/');
+      }
+    });
   }
 
   resetPassword() {

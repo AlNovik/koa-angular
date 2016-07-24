@@ -17,16 +17,16 @@
 </p>
 <![endif]-->
 
-<md-content>
+<div layout="column" layout-fill="layout-fill">
 
-<!-- Add your site or application content here -->
-<div ng-viewport="header"></div>
+    <!-- Add your site or application content here -->
+    <div ng-viewport="header"></div>
 
-<div ng-viewport="main"></div>
+    <div ng-viewport="main" layout="row" flex></div>
 
-<div class="footer" ng-viewport="footer"></div>
+    <div ng-viewport="footer" class="footer" layout="row" layout-align="center center"></div>
 
-</md-content>
+</div>
 
 </body>
 </html>
