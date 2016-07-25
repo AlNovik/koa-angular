@@ -6,6 +6,6 @@ angular.module('as.logger').provider('asLogger', () => {
       moduleName = name;
     },
 
-    $get: ['$log', $log => name => $log.getInstance(moduleName + '.' + name)]
+    $get: ['$log', $log => name => $log.getInstance(`${moduleName}.${name}`)],
   };
 });

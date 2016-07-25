@@ -1,0 +1,8 @@
+<div ng-if="visible">
+    <span ng-repeat="localesDisplayName in localesDisplayNames"
+          class="pointer flag-icon ng-class:'flag-icon-' + localesDisplayName.icon"
+          ng-class="{}"
+          style="padding: 3px"
+    ng-click="changeLanguage(localesDisplayName)">
+    </span>
+</div>

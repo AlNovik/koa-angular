@@ -1,15 +1,15 @@
 <section layout="row" layout-align="center center">
     <md-content layout="column" class="md-padding">
         <md-input-container>
-            <label>EmailAddress</label>
+            <label translate="EMAIL"></label>
             <input type="email" ng-model="username"/>
         </md-input-container>
         <md-input-container>
-            <label>Password</label>
+            <label translate="PASSWORD"></label>
             <input type="password" ng-model="password"/>
         </md-input-container>
         <div layout="row" layout-align="center center" style="padding-top:20px;">
-            <md-button class="md-raised md-primary" ng-click="login.login()">Login</md-button>
+            <md-button class="md-raised md-primary" ng-click="login.login()" translate="LOGIN"></md-button>
             <div flex="flex"></div>
         </div>
     </md-content>

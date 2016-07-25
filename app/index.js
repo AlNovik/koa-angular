@@ -14,6 +14,7 @@ import 'babel-polyfill';
 
 import auth from '../auth';
 import logger from '../logger';
+import i18n from '../i18n';
 
 import routing from './routing';
 
@@ -32,6 +33,7 @@ angular.module('as.app', [
   'LocalStorageModule',
   auth,
   logger,
+  i18n,
   routing,
 ])
     .config(['localStorageServiceProvider', localStorageServiceProvider => {
