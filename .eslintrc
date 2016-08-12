@@ -18,6 +18,7 @@
   "rules": {
     "no-empty-label": 0, // disallow use of labels for anything other then loops and switches
     "space-after-keywords": 0,
-    "space-return-throw-case": 0 // require a space after return, throw, and case
+    "space-return-throw-case": 0, // require a space after return, throw, and case
+    "comma-dangle": 0
   }
 }

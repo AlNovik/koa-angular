@@ -15,8 +15,6 @@ class LocaleService {
     this.$translate = $translate;
     _logger.set(this, asLogger('LocaleService'));
 
-    _logger.get(this).error('constructor');
-
     // locales and locales display names
     this[_LOCALES] = Object.keys(this.localesObj);
     if (!this[_LOCALES] || this[_LOCALES].length === 0) {

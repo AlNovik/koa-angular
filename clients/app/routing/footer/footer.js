@@ -1,4 +1,4 @@
-let COMPONENT_NAME = 'as.profile.footer';
+let COMPONENT_NAME = 'as.app.footer';
 
 class FooterController {
   /* @ngInject */

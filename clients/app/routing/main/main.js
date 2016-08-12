@@ -2,7 +2,7 @@
  * Created by Alexander Novik.
  */
 
-let COMPONENT_NAME = 'as.profile.main';
+const COMPONENT_NAME = 'as.app.main';
 
 let _logger = new WeakMap();
 /**

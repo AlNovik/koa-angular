@@ -12,9 +12,9 @@ import 'angular-aria';
 
 import 'babel-polyfill';
 
-import auth from '../auth';
-import logger from '../logger';
-import i18n from '../i18n';
+import auth from '../modules/auth';
+import logger from '../modules/logger';
+import i18n from '../modules/i18n';
 
 import routing from './routing';
 
@@ -23,9 +23,12 @@ import bootstrap from './bootstrap';
 // Styles
 import 'angular-material/angular-material.css';
 
-import '../styles/main.styl';
+import '../../styles/main.styl';
+import './styles/app.styl';
 
-angular.module('as.app', [
+import 'material-design-icons';
+
+angular.module('as.admin', [
   angularAnimate,
   angularResource,
   angularSanitize,
@@ -34,15 +37,15 @@ angular.module('as.app', [
   auth,
   logger,
   i18n,
-  routing,
+  routing
 ])
     .config(['localStorageServiceProvider', localStorageServiceProvider => {
       localStorageServiceProvider
-          .setPrefix('app')
+          .setPrefix('admin')
           .setStorageType('localStorage')
           .setNotify(true, true);
     }])
-    .config(['asLoggerProvider', asLoggerProvider => asLoggerProvider.setModuleName('APP')])
+    .config(['asLoggerProvider', asLoggerProvider => asLoggerProvider.setModuleName('ADMIN')])
     .config($mdThemingProvider => {
       $mdThemingProvider.theme('default')
           .primaryPalette('grey')

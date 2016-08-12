@@ -1,38 +1,38 @@
-'use strict';
-
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
 
 module.exports = {
+  context: __dirname + '/clients',
   entry: {
-    app: "./app",
+    app: './app',
+    admin: './admin',
     vendor: [
       'angular'
     ]
   },
   output: {
-    path: __dirname + "/dist",
-    filename: NODE_ENV == 'development' ? "[name].js": "js/[name].[hash].js"
+    path: __dirname + '/dist',
+    filename: NODE_ENV === 'development' ? '[name].js' : 'js/[name].[hash].js'
   },
 
   externals: {},
 
-  //watch: NODE_ENV == 'development',
+  // watch: NODE_ENV == 'development',
   watchOptions: {
     aggregateTimeout: 100
   },
-  devtool: NODE_ENV == 'development' ? "cheap-inline-module-source-map" : null,
+  devtool: NODE_ENV === 'development' ? 'cheap-inline-module-source-map' : null,
 
   plugins: [
     new webpack.NoErrorsPlugin(),
 
     new webpack.optimize.CommonsChunkPlugin({
       // The order of this array matters
-      names: ["common", "vendor"],
+      names: ['common', 'vendor'],
       minChunks: 2
     }),
 
@@ -47,6 +47,14 @@ module.exports = {
       chunks: ['common', 'vendor', 'app']
     }),
 
+    new HtmlWebpackPlugin({
+      template: 'admin/index.html',
+      inject: 'body',
+      hash: true,
+      filename: 'admin/index.html',
+      chunks: ['common', 'vendor', 'admin']
+    }),
+
     new CleanWebpackPlugin(['dist', 'build']),
 
     new webpack.DefinePlugin({
@@ -59,33 +67,32 @@ module.exports = {
 
   resolve: {
     modulesDirectories: [
-      path.join(__dirname, "node_modules"),
-      path.join(__dirname, "bower_components"),
-      path.join(__dirname, "lib")
+      path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'lib')
     ],
     extensions: ['', '.js']
   },
 
-  module:{
-    loaders:[{
+  module: {
+    loaders: [{
       test: /\.js$/,
       exclude: /\/node_modules\/|\/bower_components\/|\/lib\//,
-      loader: 'ng-annotate!babel' //eslint
-    },{
+      loader: 'ng-annotate!babel' // eslint
+    }, {
       test: /\.html$/,
-      loader: "html"
-    },{
+      loader: 'html'
+    }, {
       test: /\.css$/,
-      loader: "style!css"
-    },{
+      loader: 'style!css'
+    }, {
       test: /\.styl$/,
       loader: 'style!css!stylus'
-    },{
+    }, {
       test: /\.(png|jpg|svg|ttf|eof|eot|woff|woff2|gif)$/,
-      loader: "file?name=/images/[name].[hash].[ext]?[hash]"
-    },{
+      loader: 'file?name=/images/[name].[hash].[ext]?[hash]'
+    }, {
       test: /\.json$/,
-      loader: "json"
+      loader: 'json'
     }],
 
     noParse: /angular\/angular.js/

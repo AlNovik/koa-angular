@@ -7,5 +7,6 @@
   "ENTER": "Enter",
   "LOGIN": "Login",
   "EMAIL": "E-mail",
-  "PASSWORD": "Password"
+  "PASSWORD": "Password",
+  "LOGOUT": "Logout"
 }

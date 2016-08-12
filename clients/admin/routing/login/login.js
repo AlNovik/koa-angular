@@ -1,4 +1,4 @@
-const COMPONENT_NAME = 'as.profile.login';
+const COMPONENT_NAME = 'as.admin.login';
 
 const _logger = new WeakMap();
 /**
