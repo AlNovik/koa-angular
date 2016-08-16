@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "Test-project"
+  },
+  "server": {
+    "port": 3000
+  }
+}
