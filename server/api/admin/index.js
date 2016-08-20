@@ -3,25 +3,32 @@ import Router from 'koa-router';
 const router = new Router();
 
 router
-  .get('/query', async(ctx, next) => {
-    ctx.body = {status: 'success'};
+  .get('/project', async(ctx, next) => {
+    ctx.body = {
+      status: 'success'
+    };
+    next();
   })
-  .get('/query/:id', async(ctx, next) => {
+  .get('/project/:id', async(ctx, next) => {
     ctx.body = {
       status: 'success',
       id: ctx.params.id
     };
+    next();
   })
-  .post('/query', async(ctx, next) => {
+  .post('/project', async(ctx, next) => {
     ctx.status = 201;
     ctx.body = ctx.request.body;
+    next();
   })
-  .put('/query/:id', async(ctx, next) => {
+  .put('/project/:id', async(ctx, next) => {
     ctx.status = 204;
     ctx.body = ctx.request.body;
+    next();
   })
-  .delete('/query/:id', async(ctx, next) => {
+  .delete('/project/:id', async(ctx, next) => {
     ctx.status = 204;
+    next();
   });
 
 export default router;
