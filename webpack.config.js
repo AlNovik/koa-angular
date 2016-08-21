@@ -22,6 +22,7 @@ module.exports = {
   externals: {},
 
   // watch: NODE_ENV == 'development',
+
   watchOptions: {
     aggregateTimeout: 100
   },
