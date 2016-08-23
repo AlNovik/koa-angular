@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize';
-import config from '../config';
+import config from '../modules/config';
 import fs from 'fs';
 import path from 'path';
 
@@ -10,6 +10,7 @@ const dbHost = config.get('database:host');
 const poolSize = config.get('database:pool-size');
 
 const db = {};
+console.log(`Connecting to ${dbName} database`);
 
 const sequelize = new Sequelize(dbName, username, password, {
   host: dbHost,
@@ -22,10 +23,10 @@ const sequelize = new Sequelize(dbName, username, password, {
   }
 });
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => (file.indexOf('.') !== 0) && (file !== 'index.js'))
-  .forEach(file => {
+// fs
+//   .readdirSync(__dirname)
+//   .filter(file => (file.indexOf('.') !== 0) && (file !== 'index.js'))
+  ['project.js', 'tag.js'].forEach(file => {
     const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });

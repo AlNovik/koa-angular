@@ -4,9 +4,9 @@
   "description": "Start-up for angular project",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
-    "test:server:unit": "./node_modules/.bin/mocha --compilers js:babel-core/register -R spec server/tests/unit/index.js",
-    "test:server:integration": "./node_modules/.bin/mocha -R spec server/tests/integration/index.js",
+    "test:karma": "npm run test",
+    "test:unit": "./node_modules/.bin/mocha --compilers js:babel-core/register -R spec server/tests/unit/index.js",
+    "test:integration": "./node_modules/.bin/mocha -R spec server/tests/integration/index.js",
     "prestart": "npm install",
     "dev": "npm i && ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --progress --colors",
     "build": "./node_modules/webpack/bin/webpack.js"

@@ -6,7 +6,7 @@ function importTest(name, path) {
     });
 }
 
-require('./common.spec');
+import './common.spec';
 
 describe(`Running Unit tests for ${config.get('app:name')}`, () => {
 
