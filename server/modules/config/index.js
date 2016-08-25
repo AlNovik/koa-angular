@@ -1,6 +1,6 @@
 const nconf = require('nconf');
 const env = 'TEST';
-const configs = {
+const envConfigs = {
     TEST: () => {
         nconf.file('custom', {file: `${process.cwd()}/server/modules/config/test-config.json`});
     },
@@ -13,9 +13,9 @@ const configs = {
 nconf.argv().env();
 
 
-if (configs[env]) {
+if (envConfigs[env]) {
     console.log(`Loading ${env} configuration settings`);
-    configs[env]();
+    envConfigs[env]();
 } else {
     nconf.file('custom', {file: `${process.cwd()}/server/modules/config/dev-config.json`})
 }

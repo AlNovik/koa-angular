@@ -1,15 +1,14 @@
 export default (sequelize, DataTypes) => {
-  const New = sequelize.define('New', {
-    title: DataTypes.STRING,
+  const Comment = sequelize.define('Comment', {
     content: DataTypes.STRING,
-    slug: DataTypes.STRING,
     date: DataTypes.DATE
   }, {
     classMethods: {
       associate: models => {
+        Comment.belongsTo(models.Project);
       }
     }
   });
 
-  return New;
+  return Comment;
 };

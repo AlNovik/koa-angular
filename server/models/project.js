@@ -7,11 +7,13 @@
  */
 export default (sequelize, DataTypes) => {
   const Project = sequelize.define('Project', {
-    title: DataTypes.STRING
+    title: DataTypes.STRING,
+    description: DataTypes.STRING
   }, {
     classMethods: {
       associate: models => {
         Project.hasMany(models.Tag);
+        Project.hasMany(models.Image);
       }
     }
   });

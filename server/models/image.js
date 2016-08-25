@@ -1,9 +1,7 @@
 export default (sequelize, DataTypes) => {
-  const New = sequelize.define('New', {
+  const Image = sequelize.define('Image', {
     title: DataTypes.STRING,
-    content: DataTypes.STRING,
-    slug: DataTypes.STRING,
-    date: DataTypes.DATE
+    href: DataTypes.STRING
   }, {
     classMethods: {
       associate: models => {
@@ -11,5 +9,5 @@ export default (sequelize, DataTypes) => {
     }
   });
 
-  return New;
+  return Image;
 };
