@@ -16,7 +16,7 @@ const sequelize = new Sequelize(dbName, username, password, {
   host: dbHost,
   dialect: 'postgres',
 
-  logging: false,
+  logging: config.get('NODE_ENV') === 'DEV',
 
   pool: {
     max: poolSize,
