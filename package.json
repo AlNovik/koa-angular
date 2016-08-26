@@ -4,11 +4,11 @@
   "description": "Start-up for angular project",
   "main": "index.js",
   "scripts": {
-    "test:karma": "npm run test",
-    "test:unit": "export NODE_ENV=TEST && ./node_modules/.bin/mocha -R spec server/tests/unit/index.js",
-    "test:integration": "export NODE_ENV=TEST && ./node_modules/.bin/mocha -R spec --timeout 5000 server/tests/integration/index.js",
+    "test:karma": "karma start",
+    "test:unit": "./bin/run_unit",
+    "test:integration": "./bin/run_integration",
     "prestart": "npm install",
-    "dev": "npm i && ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --progress --colors",
+    "dev": "./bin/run_dev",
     "build": "./node_modules/webpack/bin/webpack.js"
   },
   "devDependencies": {

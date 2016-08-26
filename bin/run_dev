@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+npm i
+export NODE_ENV=DEV
+./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --progress --colors
