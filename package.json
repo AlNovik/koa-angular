@@ -6,7 +6,7 @@
   "scripts": {
     "test:karma": "npm run test",
     "test:unit": "export NODE_ENV=TEST && ./node_modules/.bin/mocha -R spec server/tests/unit/index.js",
-    "test:integration": "export NODE_ENV=TEST && ./node_modules/.bin/mocha -R spec server/tests/integration/index.js",
+    "test:integration": "export NODE_ENV=TEST && ./node_modules/.bin/mocha -R spec --timeout 5000 server/tests/integration/index.js",
     "prestart": "npm install",
     "dev": "npm i && ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --progress --colors",
     "build": "./node_modules/webpack/bin/webpack.js"
@@ -106,6 +106,7 @@
     "koa-cors": "0.0.16",
     "koa-logger": "^2.0.0",
     "koa-router": "^7.0.0",
+    "lodash": "^4.15.0",
     "material-design-icons": "^2.2.3",
     "messageformat": "^0.3.1",
     "moment": "^2.13.0",

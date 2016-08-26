@@ -34,12 +34,22 @@ export default (name, app) => {
         .end(done);
     });
 
-    it('POST should return 201 status', done => {
+    it('POST should return 500 status on empty body', done => {
       request
         .post('/admin/projects')
         .send({})
-        .expect(201)
+        .expect(500)
         .end(done);
+    });
+
+    it('POST should return 201 status', done => {
+      request
+          .post('/admin/projects')
+          .send({
+            title: 'Test project'
+          })
+          .expect(201)
+          .end(done);
     });
 
     it('PUT should return 201 status', done => {

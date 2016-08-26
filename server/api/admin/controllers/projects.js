@@ -1,4 +1,6 @@
 import models from '../../../models';
+import ApiError from '../../../errors/ApiError';
+import _ from 'lodash';
 
 const Projects = models.Project;
 
@@ -13,6 +15,10 @@ async function get(ctx, next) {
 }
 
 async function create(ctx, next) {
+    let project = ctx.request.body;
+    if(_.isEmpty(project)) {
+        throw new ApiError('Body shouldn\'t be empty');
+    }
     ctx.status = 201;
     ctx.body = ctx.request.body;
 }
