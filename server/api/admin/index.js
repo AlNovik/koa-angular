@@ -1,29 +1,23 @@
 import Router from 'koa-router';
+import projectsCtrl from './controllers/projects';
 
-const router = new Router();
+const adminRouter = new Router();
+const projectsRouter = new Router({
+  prefix: '/projects'
+});
+// const usersRouter = new Router();
+// const employeesRouter = new Router();
+// const comentsRouter = new Router();
 
-router
-  .get('/project', async(ctx, next) => {
-    ctx.body = {
-      status: 'success'
-    };
-  })
-  .get('/project/:id', async(ctx, next) => {
-    ctx.body = {
-      status: 'success',
-      id: ctx.params.id
-    };
-  })
-  .post('/project', async(ctx, next) => {
-    ctx.status = 201;
-    ctx.body = ctx.request.body;
-  })
-  .put('/project/:id', async(ctx, next) => {
-    ctx.status = 204;
-    ctx.body = ctx.request.body;
-  })
-  .delete('/project/:id', async(ctx, next) => {
-    ctx.status = 204;
-  });
+projectsRouter.get('/', projectsCtrl.list);
+projectsRouter.get('/:id', projectsCtrl.get);
+projectsRouter.post('/', projectsCtrl.create);
+projectsRouter.put('/:id', projectsCtrl.update);
+projectsRouter.delete('/:id', projectsCtrl.del);
 
-export default router;
+
+
+adminRouter.use('/admin',
+    projectsRouter.routes());
+
+export default adminRouter;

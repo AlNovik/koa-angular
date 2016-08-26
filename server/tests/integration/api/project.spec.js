@@ -1,28 +1,42 @@
 import supertest from 'supertest';
+import models from '../../../models';
+let should = require('chai').should();
 
 
 export default (name, app) => {
   let request = supertest.agent(app.listen());
 
   describe(name, () => {
+    let project;
+
+    before(async () => {
+      await models.sequelize.sync({ force : true });
+      project = await models.Project.create({ title: 'Project title' });
+    });
 
     it('GET should return 200 status', done => {
       request
-        .get('/project')
+        .get('/admin/projects')
         .expect(200)
+        .expect(res => {
+          res.body.should.have.length(1);
+        })
         .end(done);
     });
 
     it('GET should return 200 status', done => {
       request
-        .get('/project/1')
+        .get(`/admin/projects/${project.id}`)
         .expect(200)
+        .expect(res => {
+          res.body.should.have.property('title', 'Project title');
+        })
         .end(done);
     });
 
     it('POST should return 201 status', done => {
       request
-        .post('/project')
+        .post('/admin/projects')
         .send({})
         .expect(201)
         .end(done);
@@ -30,7 +44,7 @@ export default (name, app) => {
 
     it('PUT should return 201 status', done => {
       request
-        .put('/project/1')
+        .put('/admin/projects/1')
         .send({})
         .expect(204)
         .end(done);
@@ -38,7 +52,7 @@ export default (name, app) => {
 
     it('DELETE should return 204 status', done => {
       request
-        .delete('/project/1')
+        .delete('/admin/projects/1')
         .expect(204)
         .end(done);
     });
