@@ -6,7 +6,14 @@ export default (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: models => {
-        Employee.hasMany(models.Skill);
+        Employee.belongsToMany(models.Skill, {
+          through: 'employee_skills'
+        });
+      }
+    },
+    instanceMethods: {
+      getFullName: function() {
+        return [this.firstName, this.lastName].join(' ')
       }
     }
   });

@@ -10,6 +10,11 @@ export default (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {
     classMethods: {
+      associate: models => {
+        Skill.belongsToMany(models.Employee, {
+          through: 'employee_skills'
+        });
+      }
     }
   });
 

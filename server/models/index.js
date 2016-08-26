@@ -16,6 +16,8 @@ const sequelize = new Sequelize(dbName, username, password, {
   host: dbHost,
   dialect: 'postgres',
 
+  logging: false,
+
   pool: {
     max: poolSize,
     min: 0,
@@ -23,10 +25,9 @@ const sequelize = new Sequelize(dbName, username, password, {
   }
 });
 
-// fs
-//   .readdirSync(__dirname)
-//   .filter(file => (file.indexOf('.') !== 0) && (file !== 'index.js'))
-  ['project.js', 'tag.js'].forEach(file => {
+fs
+  .readdirSync(__dirname)
+  .filter(file => (file.indexOf('.') !== 0) && (file !== 'index.js')).forEach(file => {
     const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });

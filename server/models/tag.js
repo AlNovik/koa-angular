@@ -12,7 +12,7 @@ export default (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: models => {
-        Tag.hasMany(models.Project);
+        // Tag.hasMany(models.Project);
       }
     }
   });

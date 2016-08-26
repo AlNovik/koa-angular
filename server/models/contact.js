@@ -1,3 +1,10 @@
-/**
- * Created by anovik on 8/18/16.
- */
+export default (sequelize, DataTypes) => {
+    const Contact = sequelize.define('Contact', {
+        name: DataTypes.STRING
+    }, {
+        classMethods: {
+        }
+    });
+
+    return Contact;
+};

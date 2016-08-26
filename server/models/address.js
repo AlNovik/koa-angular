@@ -13,9 +13,6 @@ export default (sequelize, DataTypes) => {
     flat: DataTypes.INTEGER,
   }, {
     classMethods: {
-      associate: models => {
-        Address.hasMany(models.Client);
-      }
     }
   });
 
