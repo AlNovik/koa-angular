@@ -1,11 +1,13 @@
 import models from '../../../models';
 import ApiError from '../../../errors/ApiError';
+import errorMessage from '../../../modules/error-messages';
 import _ from 'lodash';
 
 const Projects = models.Project;
 
 async function list(ctx, next) {
-    ctx.body = await Projects.findAll();
+    let projects = await Projects.findAll();
+    ctx.body = projects;
 }
 
 async function get(ctx, next) {
@@ -17,10 +19,11 @@ async function get(ctx, next) {
 async function create(ctx, next) {
     let project = ctx.request.body;
     if(_.isEmpty(project)) {
-        throw new ApiError('Body shouldn\'t be empty');
+        throw new ApiError(errorMessage('badRequest', 'Body shouldn\'t be empty'));
     }
+
+    ctx.body = await Projects.create(project);
     ctx.status = 201;
-    ctx.body = ctx.request.body;
 }
 
 async function update(ctx, next) {

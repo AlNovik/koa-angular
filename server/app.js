@@ -7,6 +7,7 @@ import convert from 'koa-convert';
 import api from './api';
 import errorHandler from './middlewares/errors';
 import config from './modules/config';
+import './modules/defaults';
 
 const app = new Koa();
 

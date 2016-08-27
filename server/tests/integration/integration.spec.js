@@ -7,7 +7,7 @@ function importTest(name, path) {
   require(path)(name, app);
 }
 
-// import './db/db.spec';
+import './db/db.spec';
 
 describe(`Running Integration tests for ${config.get('app:name')}`, () => {
 

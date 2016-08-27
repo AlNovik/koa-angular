@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export NODE_ENV=TEST
+./node_modules/.bin/istanbul cover --report html ./node_modules/.bin/_mocha -- -R spec --timeout 5000 server/tests/integration/index.js

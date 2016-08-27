@@ -1,4 +1,4 @@
-const NODE_ENV = process.env.NODE_ENV || 'development';
+const NODE_ENV = process.env.NODE_ENV || 'DEV';
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     path: __dirname + '/dist',
-    filename: NODE_ENV === 'development' ? '[name].js' : 'js/[name].[hash].js'
+    filename: NODE_ENV === 'DEV' ? '[name].js' : 'js/[name].[hash].js'
   },
 
   externals: {},

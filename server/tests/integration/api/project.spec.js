@@ -34,11 +34,11 @@ export default (name, app) => {
         .end(done);
     });
 
-    it('POST should return 500 status on empty body', done => {
+    it('POST should return 400 status on empty body', done => {
       request
         .post('/admin/projects')
         .send({})
-        .expect(500)
+        .expect(400)
         .end(done);
     });
 
