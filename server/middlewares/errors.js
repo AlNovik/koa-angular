@@ -3,15 +3,14 @@ export default async (ctx, next) => {
     await next();
   } catch (err) {
     // will only respond with JSON
-    if(err.boom) {
-      ctx.status = err.boom.statusCode;
-      ctx.body = err.boom.payload;
+    if(err.extra) {
+      ctx.status = err.extra.statusCode;
+      ctx.body = err.extra.payload;
     } else {
       ctx.status = err.statusCode || err.status || 500;
       ctx.body = {
         message: err.message
       };
     }
-
   }
 };

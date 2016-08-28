@@ -4,10 +4,13 @@ import ExtendableError from './ExtendableError';
  * API error
  */
 class ApiError extends ExtendableError {
-    constructor (boom, extra) {
-        super(boom.payload.message);
-        this.boom = boom;
-        this.extra = extra;
+    constructor (message, extra) {
+        super(typeof message === 'string' ? message : message.payload.message);
+        if (typeof message === 'string') {
+            this.extra = extra;
+        } else {
+            this.extra = message;
+        }
     }
 }
 
